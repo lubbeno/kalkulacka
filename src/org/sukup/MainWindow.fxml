@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -12,7 +9,7 @@
             fx:controller="org.sukup.MainWindowController"
             prefHeight="430.0" prefWidth="380.0" >
     <top>
-        <GridPane alignment="TOP_RIGHT" hgap="10" vgap="10" gridLinesVisible="false" >
+        <GridPane alignment="TOP_RIGHT" hgap="10" vgap="10" gridLinesVisible="fasle" >
             <columnConstraints >
                 <ColumnConstraints prefWidth="122" />
                 <ColumnConstraints prefWidth="76" />
@@ -23,7 +20,7 @@
             </padding>
             <TextField prefWidth="260" prefHeight="35"  GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="3"  fx:id="displayKalkulacky"  onKeyPressed="#napisDoKonzoly" alignment="CENTER_RIGHT"></TextField>
             <Button GridPane.halignment="RIGHT" textFill="crimson" text="Backspc" prefHeight="35" prefWidth="76" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <Button textFill="crimson" text="C" prefHeight="35" prefWidth="76" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Button textFill="crimson" text="C" prefHeight="35" prefWidth="76" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#c"/>
             <Button textFill="crimson" text="CE" prefHeight="35" prefWidth="76" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
         </GridPane>
     </top>
@@ -31,65 +28,65 @@
         <GridPane hgap="10" vgap="10" alignment="TOP_RIGHT" gridLinesVisible="false">
             <columnConstraints >
                 <ColumnConstraints prefWidth="37" />
-                <ColumnConstraints prefWidth="37" />
+                <ColumnConstraints prefWidth="47" />
             </columnConstraints>
             <padding>
                 <Insets right="50" bottom="40" />
             </padding>
-            <Button textFill="crimson" text="/" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Button textFill="crimson" text="sqrt" prefHeight="37" prefWidth="37" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Button textFill="crimson" text="*" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="1"  onAction="#sucet"/>
-            <Button textFill="crimson" text=" " prefHeight="37" prefWidth="37" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button textFill="crimson" text="-" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#sucet"/>
-            <Button textFill="crimson" text="1/X" prefHeight="37" prefWidth="73" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button textFill="crimson" text="+" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#sucet"/>
-            <Button textFill="crimson" text="=" prefHeight="37" prefWidth="37" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#vysledok" />
+            <Button textFill="crimson" text="/" prefHeight="37" prefWidth="47" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#sucet"/>
+            <Button textFill="crimson" text="sqrt" prefHeight="37" prefWidth="47" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#sqrt"/>
+            <Button textFill="crimson" text="*" prefHeight="37" prefWidth="47" GridPane.columnIndex="0" GridPane.rowIndex="1"  onAction="#sucet"/>
+            <Button textFill="crimson" text=" " prefHeight="37" prefWidth="47"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button textFill="crimson" text="-" prefHeight="37" prefWidth="47" GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#sucet"/>
+            <Button textFill="crimson" text="1/X" prefHeight="37" prefWidth="47" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button textFill="crimson" text="+" prefHeight="37" prefWidth="47" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#sucet"/>
+            <Button textFill="crimson" text="=" prefHeight="37" prefWidth="47"  GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#vysledok" />
 
         </GridPane>
     </right>
     <center>
         <GridPane hgap="10" vgap="10" alignment="TOP_RIGHT" gridLinesVisible="false">
             <columnConstraints >
-                <ColumnConstraints prefWidth="37" />
-                <ColumnConstraints prefWidth="37" />
-                <ColumnConstraints prefWidth="37" />
-                <ColumnConstraints prefWidth="37" />
+                <ColumnConstraints prefWidth="50" />
+                <ColumnConstraints prefWidth="43" />
+                <ColumnConstraints prefWidth="43" />
+                <ColumnConstraints prefWidth="43" />
             </columnConstraints>
             <padding>
                 <Insets right="30" bottom="40" />
             </padding>
-            <Button textFill="crimson" text="MS" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Button textFill="blue" text="7" prefHeight="37" prefWidth="37" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Button textFill="blue" text="8" prefHeight="37" prefWidth="37" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-            <Button textFill="blue" text="9" prefHeight="37" prefWidth="37" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-            <Button textFill="crimson" text="MR" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Button textFill="blue" text="4" prefHeight="37" prefWidth="37" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button textFill="blue" text="5" prefHeight="37" prefWidth="37" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button textFill="blue" text="6" prefHeight="37" prefWidth="37" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button textFill="crimson" text="MS" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <Button textFill="blue" text="1" prefHeight="37" prefWidth="37" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#napisCislo"/>
-            <Button textFill="blue" text="2" prefHeight="37" prefWidth="37" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#napisCislo"/>
-            <Button textFill="blue" text="3" prefHeight="37" prefWidth="37" GridPane.columnIndex="3" GridPane.rowIndex="2" onAction="#napisCislo"/>
-            <Button textFill="crimson" text="M+" prefHeight="37" prefWidth="37" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#akciaJedna" />
-            <Button textFill="blue" text="0" prefHeight="37" prefWidth="37" GridPane.columnIndex="1" GridPane.rowIndex="3"  onAction="#napisCislo"  />
-            <Button textFill="blue" text="+/- " prefHeight="37" prefWidth="37" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button textFill="blue" text="." prefHeight="37" prefWidth="37" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button textFill="crimson" text="MS" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Button textFill="blue" text="7" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#napisCislo"/>
+            <Button textFill="blue" text="8" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#napisCislo"/>
+            <Button textFill="blue" text="9" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#napisCislo"/>
+            <Button textFill="crimson" text="MR" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button textFill="blue" text="4" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#napisCislo" />
+            <Button textFill="blue"  text="5" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#napisCislo"/>
+            <Button textFill="blue" text="6" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#napisCislo" />
+            <Button textFill="crimson" text="MS" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Button textFill="blue" text="1" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#napisCislo"/>
+            <Button textFill="blue" text="2" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#napisCislo"/>
+            <Button textFill="blue" text="3" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="2" onAction="#napisCislo"/>
+            <Button textFill="crimson" text="M+" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#akciaJedna" />
+            <Button textFill="blue" text="0" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3"  onAction="#napisCislo"  />
+            <Button textFill="blue" text="+/-" prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="3" onAction="#plusMinus"/>
+            <Button textFill="blue" text="." prefHeight="37" prefWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="3" onAction="#desatineMiesto" />
         </GridPane>
     </center>
     <bottom>
 
         <GridPane  alignment="TOP_RIGHT" hgap="10" vgap="10" gridLinesVisible="false">
             <columnConstraints >
-                <ColumnConstraints prefWidth="100" />
-                <ColumnConstraints prefWidth="37" />
-                <ColumnConstraints prefWidth="45" />
+                <ColumnConstraints prefWidth="120" />
+                <ColumnConstraints prefWidth="50" />
+                <ColumnConstraints prefWidth="60" />
             </columnConstraints>
             <padding>
                 <Insets right="50" bottom="40" />
             </padding>
-            <Button textFill="blue" text="Some Feature" prefWidth="Infinity" prefHeight="37" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Button textFill="red" text="Exit" prefWidth="Infinity" prefHeight="37" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <Button textFill="orange" text="Help" prefWidth="Infinity" prefHeight="37" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <Button textFill="blue" text="Some Feature"  prefHeight="37" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#someFeature"/>
+            <Button textFill="red" text="Exit"  prefHeight="37" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Button textFill="orange" text="Help"  prefHeight="37" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#udelameNeco"/>
         </GridPane>
     </bottom>
 </BorderPane>

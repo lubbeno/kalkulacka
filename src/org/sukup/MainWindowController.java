@@ -1,27 +1,24 @@
 package org.sukup;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
-import java.time.LocalDate;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class MainWindowController {
 
-    private Long cisloNaUlozeni;
+    private Double cisloNaUlozeni;
     private String ccoBudemePocitat;
-
+    private boolean vypocitane;
 
     @FXML
     TextField displayKalkulacky;
-
-    public void napisNulu() {
-        System.out.println("0");
-        displayKalkulacky.getText();
-        displayKalkulacky.setText(displayKalkulacky.getText().concat("0"));
-    }
-
 
     @FXML
     void napisDoKonzoly() {
@@ -39,14 +36,19 @@ public class MainWindowController {
 
     public void initialize() {
 
-        System.out.println("prva vec co sa vykona");
-        displayKalkulacky.setText("prva vec co sa vykona");
-        System.out.println(LocalDate.now());
+    }
 
+    @FXML
+    public void c(){
+        displayKalkulacky.setText("");
     }
 
     @FXML
     public void napisCislo(ActionEvent a) {
+        if(vypocitane){
+            displayKalkulacky.setText("");
+            vypocitane = false;
+        }
         Button tlacidlo = (Button) a.getSource();
         displayKalkulacky.setText(displayKalkulacky.getText().concat(tlacidlo.getText()));
 
@@ -54,8 +56,8 @@ public class MainWindowController {
 
     @FXML
     public void sucet(ActionEvent a) {
-        cisloNaUlozeni = Long.parseLong(displayKalkulacky.getText());
-        displayKalkulacky.setText("0");
+        cisloNaUlozeni = Double.parseDouble(displayKalkulacky.getText());
+        displayKalkulacky.setText("");
         Button tlacidlo = (Button) a.getSource();
         ccoBudemePocitat = tlacidlo.getText();
     }
@@ -84,14 +86,52 @@ public class MainWindowController {
                 displayKalkulacky.setText(cisloNaUlozeni.toString());
                 reset();
                 break;
-
         }
+        vypocitane = true;
+    }
 
+    private void reset() {
+        cisloNaUlozeni = 0.0;
     }
 
 
-    private void reset() {
-        cisloNaUlozeni = 0L;
+
+    @FXML
+    public void udelameNeco(Event e){
+        Button button = (Button) e.getSource();
+        System.out.println(" tu je text tlacitka co sem zadal " + button.getText());
+    }
+
+    @FXML
+    public void desatineMiesto(Event e){
+      if(!displayKalkulacky.getText().contains(".")){
+          displayKalkulacky.setText(displayKalkulacky.getText().concat("."));
+      }
+    }
+
+    @FXML
+    public void sqrt(){
+        double x = Double.parseDouble(displayKalkulacky.getText());
+        displayKalkulacky.setText(String.valueOf(Math.sqrt(x)));
+    }
+
+    @FXML
+    public void someFeature() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("somefeature/SomeFeature.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("SomeFeature");
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+    }
+
+    @FXML
+    public void plusMinus(){
+        if( displayKalkulacky.getText().charAt(0) == '-') {
+            displayKalkulacky.setText(displayKalkulacky.getText().substring(1));
+        }else{
+            displayKalkulacky.setText("-"+displayKalkulacky.getText());
+        }
 
     }
 

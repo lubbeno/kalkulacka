@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.sukup.somefeature.SomeFeatureController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <center >
+        <GridPane  alignment="CENTER" hgap="10" vgap="10">
+            <Label text="User Name: " GridPane.rowIndex="0" GridPane.columnIndex="0"></Label>
+            <Label fx:id="userName" GridPane.rowIndex="0" GridPane.columnIndex="1"></Label>
+
+            <Label text="Operating System: " GridPane.rowIndex="1" GridPane.columnIndex="0"></Label>
+            <Label fx:id="operatingSystem" GridPane.rowIndex="1" GridPane.columnIndex="1"></Label>
+
+            <Label text="Home dir: " GridPane.rowIndex="2" GridPane.columnIndex="0"></Label>
+            <Label fx:id="homeDir" GridPane.rowIndex="2" GridPane.columnIndex="1"></Label>
+
+            <Label text="Processor level: " GridPane.rowIndex="3" GridPane.columnIndex="0"></Label>
+            <Label fx:id="processorLevel" GridPane.rowIndex="3" GridPane.columnIndex="1"></Label>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="set parameters" onAction="#setParameters"></Button>
+        </HBox>
+    </bottom>
+
+</BorderPane>
