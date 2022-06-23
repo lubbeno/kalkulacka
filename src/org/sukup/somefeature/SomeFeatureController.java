@@ -1,13 +1,9 @@
 package org.sukup.somefeature;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-import java.net.URL;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 public class SomeFeatureController {
 
@@ -20,7 +16,7 @@ public class SomeFeatureController {
     @FXML
     private Label processorLevel;
 
-    private MyList myList = new MyList();
+    private final MyList myList = new MyList();
 
     public void initialize() {
        Map<String,String> mapa=  System.getenv();

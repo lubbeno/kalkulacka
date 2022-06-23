@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class MainWindowController {
 
     private Double cisloNaUlozeni;
@@ -103,7 +105,7 @@ public class MainWindowController {
     }
 
     @FXML
-    public void desatineMiesto(Event e){
+    public void desatineMiesto(){
       if(!displayKalkulacky.getText().contains(".")){
           displayKalkulacky.setText(displayKalkulacky.getText().concat("."));
       }
@@ -117,7 +119,7 @@ public class MainWindowController {
 
     @FXML
     public void someFeature() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("somefeature/SomeFeature.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("somefeature/SomeFeature.fxml")));
         Stage stage = new Stage();
         stage.setTitle("SomeFeature");
         stage.setScene(new Scene(root));
